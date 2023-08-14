@@ -18,12 +18,7 @@
 }
 
 .header > div > span:first-child {
-  font-size: 14px;
+  font-size: 40px;
   line-height: 19px;
   font-weight: bold;
-}
-
-.header > div > span:not(:first-child) {
-  font-size: 10px;
-  line-height: 14px;
 }
