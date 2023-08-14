@@ -71,7 +71,6 @@ const BoardingPassHeader: FunctionComponent<BoardingPassProps> = ({
       className={headerStyle.header}
     >
       <div>
-        <span>Cartão de Embarque</span>
         <span>Boarding Pass</span>
       </div>
       <div>
@@ -96,7 +95,7 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
     <div>
       <div className={bodyStyle.passengerInfo}>
         <span>
-          <span>Nome/Name</span>
+          <span>Name</span>
           <span>
             {user.lastName}, {user.firstName}
           </span>
@@ -112,9 +111,9 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
         style={{ backgroundColor: themeColor, color: themeColor }}
         className={bodyStyle.flightHeader}
       >
-        <span>de/from</span>
-        <span>voo/flight</span>
-        <span>destino/arrival</span>
+        <span>from</span>
+        <span>flight</span>
+        <span>arrival</span>
       </div>
       <div className={bodyStyle.flightInfo}>
         <div className="flex flex-col">
@@ -122,11 +121,11 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
             {origin.name}/{origin.iata}
           </div>
           <div className="font-header mt-auto">
-            <div className="font-light text-[0.56rem] leading-3">Data/Date</div>
+            <div className="font-light text-[0.56rem] leading-3">Date</div>
             <div className="text-sm">{formatDate(eventStartDate)}</div>
           </div>
           <div className="font-header mt-auto">
-            <div className="font-light text-[0.56rem] leading-3">posição/stand</div>
+            <div className="font-light text-[0.56rem] leading-3">stand</div>
             <div className="text-[2rem] leading-[2.6rem] font-extrabold">{gate}</div>
           </div>
         </div>
@@ -135,7 +134,7 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
             {callsign}
           </div>
           <div className="font-header mt-auto">
-            <div className="font-light text-[0.56rem] leading-3">Grupo/Group</div>
+            <div className="font-light text-[0.56rem] leading-3">Group</div>
             <div className="text-sm">G1</div>
           </div>
           <div className="font-header mt-auto">
@@ -151,11 +150,11 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
           </div>
           <div className={bodyStyle.qrCodeInfo}>
             <div className={bodyStyle.infoText}>
-              Para participar do evento você deve estar ciente e disposto a
-              cumprir todas as orientações disponíveis no briefing de piloto
+            To participate in the event you must be aware of and willing to comply
+            with all guidelines available in the pilot briefing
             </div>
 
-            <QrCode value="https://br.ivao.aero" size={76} renderAs="svg" />
+            <QrCode value="https://static.pl.ivao.aero/bubbles.png" size={76} renderAs="svg" />
           </div>
         </div>
       </div>
