@@ -102,7 +102,7 @@ const BoardingPassLeftSide: FunctionComponent<BoardingPassProps> = ({
         </span>
 
         <span>
-          <span>Localizador</span>
+          <span>VID</span>
           <span>{user.vid}</span>
         </span>
       </div>
