@@ -72,6 +72,7 @@ const BoardingPassHeader: FunctionComponent<BoardingPassProps> = ({
     >
       <div>
         <span>Boarding Pass</span>
+        <span>Boarding Pass</span>
       </div>
       <div>
         {actions}
@@ -174,7 +175,7 @@ const BoardingPassRightSide: FunctionComponent<BoardingPassProps> = ({
   return (
     <div className={bodyStyle.sideContent}>
       <div className={bodyStyle.passengerInfoSideBar}>
-        <div>nome/name</div>
+        <div>Name</div>
         <div>
           {user.lastName}, {user.firstName}
         </div>
@@ -191,7 +192,7 @@ const BoardingPassRightSide: FunctionComponent<BoardingPassProps> = ({
       </div>
       <div className={bodyStyle.dateInfoSidebar}>
         <div>
-          <div>Data/Date</div>
+          <div>Date</div>
           <div>{formatDate(eventStartDate)}</div>
         </div>
         <div>
@@ -203,11 +204,11 @@ const BoardingPassRightSide: FunctionComponent<BoardingPassProps> = ({
       </div>
       <div className={bodyStyle.seatInfo}>
         <div>
-          <div>Grupo/Group</div>
+          <div>Group</div>
           <div>G1</div>
         </div>
         <div>
-          <div>Assento/Seat</div>
+          <div>Seat</div>
           <div className="text-right">1A</div>
         </div>
       </div>
