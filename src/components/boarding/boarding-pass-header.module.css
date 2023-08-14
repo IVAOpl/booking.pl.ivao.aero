@@ -1,7 +1,7 @@
 .header {
   display: flex;
   width: 100%;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 10px 0;
   padding: 16px 16px 16px 43px;
 }
 
