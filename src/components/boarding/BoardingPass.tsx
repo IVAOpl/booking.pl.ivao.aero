@@ -72,7 +72,6 @@ const BoardingPassHeader: FunctionComponent<BoardingPassProps> = ({
     >
       <div>
         <span>Boarding Pass</span>
-        <span>Boarding Pass</span>
       </div>
       <div>
         {actions}
