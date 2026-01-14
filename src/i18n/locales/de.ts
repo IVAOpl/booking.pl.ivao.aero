@@ -118,7 +118,7 @@ const deTranslations: { translations: Translations } = {
       arrivals: 'Ankünfte',
       departures: 'Abflüge',
       departureArrival: 'Departure Arrival',
-      private: 'Privat',
+      privateSlots: 'Privat',
       flightNumber: 'Flugnummer',
       eobt: 'EOBT',
       gate: 'Stand',
