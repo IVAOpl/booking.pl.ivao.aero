@@ -126,6 +126,7 @@ const plTranslations: { translations: Translations } = {
       filter: {
         call: 'Filter Table',
         title: 'Filter',
+        departureArrival: 'Departures or Arrivals',
         aircraft: 'Aircraft',
         airline: 'Airline',
         origin: 'Origin',
