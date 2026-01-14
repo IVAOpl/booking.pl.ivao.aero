@@ -12,7 +12,7 @@ const resources = {
   'es': esTranslations,
   'fr': frTranslations,
   'pt': ptTranslations,
-  'pl': plTranslations
+  'pl': plTranslations,
   'ar': arTranslations
 }
 
