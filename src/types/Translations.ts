@@ -115,7 +115,7 @@ export interface Translations {
     arrivals: string,
     departures: string,
     departureArrival: string,
-    private: string,
+    privateSlots: string,
     flightNumber: string,
     eobt: string,
     gate: string,
