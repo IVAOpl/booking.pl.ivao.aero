@@ -9,7 +9,7 @@ let envVariables = {
   IVAO_KRONOS_API_SERVER: process.env.REACT_APP_IVAO_KRONOS_API_HOST || 'https://api.kronos.pl.ivao.aero',
   IVAO_API_SERVER: process.env.REACT_APP_IVAO_API_HOST || 'https://api.ivao.aero',
   CLIENT_ID: process.env.REACT_APP_CLIENT_ID || '',
-  CLIENT_URL: process.env.REACT_APP_CLIENT_URL || '',
+  CLIENT_URL: process.env.REACT_APP_CLIENT_URL || 'https://kronos.pl.ivao.aero',
 };
 
 if (activeEnv === 'development') {
