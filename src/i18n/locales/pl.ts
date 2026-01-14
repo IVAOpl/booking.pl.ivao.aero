@@ -117,6 +117,7 @@ const plTranslations: { translations: Translations } = {
       search: 'Search Flights',
       arrivals: 'Arrivals',
       departures: 'Departures',
+      departureArrival: 'Departure and Arrival',
       privateSlots: 'Private Slots',
       flightNumber: 'Flight Number',
       eobt: 'EOBT',
@@ -125,8 +126,7 @@ const plTranslations: { translations: Translations } = {
       loadMore: 'Load more flights',
       filter: {
         call: 'Filter Table',
-        title: 'Filter',
-        departureArrival: 'Departures or Arrivals',
+        title: 'Filter',    
         aircraft: 'Aircraft',
         airline: 'Airline',
         origin: 'Origin',
