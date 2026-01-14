@@ -8,7 +8,7 @@ let envVariables = {
   ANALYTICS_TRACKING_ID: process.env.REACT_APP_ANALYTICS_TRACKING_ID || '',
   IVAO_KRONOS_API_SERVER: process.env.REACT_APP_IVAO_KRONOS_API_HOST || 'https://api.kronos.pl.ivao.aero',
   IVAO_API_SERVER: process.env.REACT_APP_IVAO_API_HOST || 'https://api.ivao.aero',
-  CLIENT_ID: process.env.REACT_APP_CLIENT_ID || '',
+  CLIENT_ID: process.env.REACT_APP_CLIENT_ID || 'ee08bd51-7b82-4b42-bd22-5ce4b724666c',
   CLIENT_URL: process.env.REACT_APP_CLIENT_URL || 'https://kronos.pl.ivao.aero',
 };
 
