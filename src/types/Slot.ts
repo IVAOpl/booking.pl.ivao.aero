@@ -4,6 +4,7 @@ import { Event } from './Event';
 export enum SlotType {
   TAKEOFF = 'takeoff',
   LANDING = 'landing',
+  TAKEOFF_LANDING = 'departureLanding'
 }
 
 export enum BookingStatus {
@@ -15,19 +16,23 @@ export enum BookingStatus {
 export interface Slot {
   id: number;
   origin: string;
+  isFixedOrigin: boolean;
   destination: string;
+  isFixedDestination: boolean;
+  slotTime: Date;
+  isFixedSlotTime: boolean;
   type: SlotType;
-  private: boolean;
-  slotTime: string;
   gate: string;
   aircraft: string;
+  isFixedAircraft: boolean;
   owner?: User;
   event?: Event;
   flightNumber: string;
+  isFixedFlightNumber: boolean;
   bookingStatus: BookingStatus;
 }
 
-export interface PrivateSlotScheduleData {
+export interface SlotScheduleData {
   flightNumber: string;
   aircraft: string;
   origin: string;
@@ -43,7 +48,9 @@ export enum SlotBookActions {
 export interface SlotCountByType {
   departure: number;
   landing: number;
-  private: number;
+  departureLanding: number;
+  privateDeparture: number;
+  privateLanding: number;
 }
 
 export function getSlotAirline(slot: Slot) {

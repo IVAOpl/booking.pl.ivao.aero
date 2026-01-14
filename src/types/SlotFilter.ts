@@ -1,5 +1,6 @@
 export enum SlotTypeOptions {
-    TAKEOFF,
-    LANDING,
-    PRIVATE
+  TAKEOFF,
+  LANDING,
+  TAKEOFF_LANDING,
+  PRIVATE,
 }

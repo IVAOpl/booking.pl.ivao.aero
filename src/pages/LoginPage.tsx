@@ -1,61 +1,51 @@
-import { LoadingIndicator } from "components/LoadingIndicator/LoadingIndicator";
-import { useContext, useEffect } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import {LoadingIndicator} from "components/LoadingIndicator/LoadingIndicator";
+import {useContext, useEffect} from "react";
+import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
+import {Env} from "../env";
 
 export default function LoginPage() {
-    const [urlParams] = useSearchParams();
-    const ivaoToken = urlParams.get("IVAOTOKEN");
+  const [urlParams] = useSearchParams();
+  const ivaoAuthCode = urlParams.get("code");
 
-    const { signIn } = useContext(AuthContext);
-    const { signed, token } = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
+  const {signIn, signed, token, openIdInfo} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        if (signed) {
-            const redirectPath = urlParams.get("redirect") || "/";
-            navigate(redirectPath, { replace: true });
-        }
-    }, [signed, urlParams, navigate]);
+  useEffect(() => {
+    if (signed) {
+      const redirectPath = urlParams.get("redirect") || "/";
+      navigate(redirectPath, {replace: true});
+    }
+  }, [signed, urlParams, navigate]);
 
-    useEffect(() => {
-        if (token) {
-            return;
-        }
+  useEffect(() => {
+    if (!openIdInfo || !openIdInfo.authorizationEndpoint) {
+      return;
+    }
 
-        const redirectUrlParam = urlParams.get("redirect");
-        if (redirectUrlParam && redirectUrlParam.indexOf("IVAOTOKEN") !== -1) {
-            /*
-                Se o servidor estiver rodando em localhost:3000, o site de login da IVAO irá redirecionar com uma query inválida
-                Ex: new URLSearchParams(window.location.search).get("redirect") = /?IVAOTOKEN=error
-            */
-            throw new Error(`The IVAO Login service rejected the request. The server is in ivao.aero domain? Token query: ${redirectUrlParam}`);
-        }
+    if (token) {
+      return;
+    }
 
-        if (ivaoToken) {
-            signIn(ivaoToken);
-            return;
-        }
+    if (ivaoAuthCode) {
+      signIn(ivaoAuthCode);
+      return;
+    }
 
-        let locationState: { from?: Location } | null = null;
-        if (typeof location.state === "object") {
-            locationState = location.state;
-        }
+    const urlQueryParams = new URLSearchParams();
+    urlQueryParams.set("client_id", Env.CLIENT_ID);
+    urlQueryParams.set(
+      "redirect_uri",
+      encodeURI(`${window.location.href}`));
+    urlQueryParams.set("response_type", "code");
+    urlQueryParams.set("scope", "profile");
+    urlQueryParams.set("response_mode", "query");
 
-        const ivaoLoginUrl = "https://login.ivao.aero/index.php?url={url}";
-        const baseUrl = window.location.href;
-        let loginUrl = ivaoLoginUrl.replace("{url}", `${baseUrl}`);
+    window.location.href = `${openIdInfo.authorizationEndpoint}?${urlQueryParams.toString()}`;
+  }, [signIn, token, location.state, openIdInfo, ivaoAuthCode]);
 
-        const redirectPath = locationState?.from?.pathname;
-        if (redirectPath) {
-            loginUrl += "?redirect=" + redirectPath;
-        }
-
-        window.location.href = loginUrl;
-    }, [ivaoToken, urlParams, signIn, token, location.state]);
-
-    return (
-        <LoadingIndicator />
-    );
+  return (
+    <LoadingIndicator/>
+  );
 }
